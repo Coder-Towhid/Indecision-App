@@ -1,7 +1,10 @@
 const Option = (props)=>{
     return(
       <div>
-        {props.optionText}
+      <p className="option">
+      {props.optionText}
+      </p>
+   
       </div>
     )
 }

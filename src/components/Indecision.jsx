@@ -47,6 +47,7 @@ const Indecision = () =>{
             />
              {console.log(options.value)}
             <Options
+            hasOptions={options.value.length>0}
                 options={options}
                 handleDeleteOptions={handleDeleteOptions}
             />

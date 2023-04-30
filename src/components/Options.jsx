@@ -2,7 +2,7 @@ import Option from "./Option"
 const Options = (props)=>{
     return(
         <div>
-            <button onClick={props.handleDeleteOptions}> Remove All</button>
+            <button onClick={props.handleDeleteOptions} disabled={!props.hasOptions}> Remove All</button>
             
             {
              
