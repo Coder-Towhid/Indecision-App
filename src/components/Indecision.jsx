@@ -35,8 +35,8 @@ const Indecision = () =>{
     })
   
    }
-   const title = 'indecison '
-   const subtitle = 'put your life in the hands of computer'
+   const title = 'Indecison '
+   const subtitle = 'Put your life in the hands of computer'
     return(
         <div>
             <Header title={title} subtitle={subtitle} />
