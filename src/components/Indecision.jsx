@@ -10,14 +10,14 @@ const Indecision = () =>{
     })
 
     const handleDeleteOptions = ()=>{
-        setOption({
-            value:[]
+        setOption(()=>{
+           return {value:[]}
           });
     }
 
    const handlePick = () =>{
     const randomNum = Math.floor(Math.random()*options.value.length)
-    const option = options[randomNum]
+    const option = options.value[randomNum]
     alert(option)
    }
 
@@ -39,17 +39,19 @@ const Indecision = () =>{
    const subtitle = 'put your life in the hands of computer'
     return(
         <div>
-        <Header title={title} subtitle={subtitle} />
-        <Action
-        hasOptions={options.length>0}
-            handlePick={handlePick}
-        />
-        <Options
-            options={options}
-            handleDeleteOptions={handleDeleteOptions}
-        />
-        <AddOption
-        handleAddOption={handleAddOption} />
+            <Header title={title} subtitle={subtitle} />
+            <Action
+            hasOptions={options.value.length>0}
+           
+                handlePick={handlePick}
+            />
+             {console.log(options.value)}
+            <Options
+                options={options}
+                handleDeleteOptions={handleDeleteOptions}
+            />
+            <AddOption
+            handleAddOption={handleAddOption} />
         
         </div>
     )

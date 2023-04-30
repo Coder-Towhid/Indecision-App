@@ -1,7 +1,0 @@
-const AddOption = ()=>{
-    return(
-        console.log("hello")
-    )
-}
-
-export default AddOption
