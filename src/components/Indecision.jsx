@@ -10,10 +10,22 @@ const Indecision = () =>{
     })
 
     const handleDeleteOptions = ()=>{
-        setOption(()=>{
-           return {value:[]}
-          });
+        setOption({value:[]})
     }
+
+    const handleDeleteOption = (optionRemove)=>{
+
+       
+
+        setOption({value: options.value.filter((option)=>{
+            return optionRemove !==  option
+            
+        })})
+       
+     
+        
+    }
+
 
    const handlePick = () =>{
     const randomNum = Math.floor(Math.random()*options.value.length)
@@ -47,10 +59,10 @@ const Indecision = () =>{
             />
              {console.log(options.value)}
             <Options
-            hasOptions={options.value.length>0}
+                hasOptions={options.value.length>0}
                 options={options}
                 handleDeleteOptions={handleDeleteOptions}
-            />
+                handleDeleteOption={handleDeleteOption}/>
             <AddOption
             handleAddOption={handleAddOption} />
         
