@@ -1,9 +1,9 @@
-import { useState } from 'react'
+
 import './App.css'
-import Indecision from './components/Indecision'
+import Indecision from './components/compsV2/Indecision'
 
 function App() {
-  const [count, setCount] = useState([])
+
 
   return (
     <div className="App">

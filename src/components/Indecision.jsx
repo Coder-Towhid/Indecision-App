@@ -2,11 +2,13 @@ import { useState } from "react";
 import Action from "./Action";
 import AddOption from "./AddOption";
 import Header from "./Header";
+import OptionModal from "./OptionModal";
 import Options from "./Options";
 
 const Indecision = () =>{
     const [options, setOption] = useState({
-        value:[]
+        value:[],
+        selectedOption: undefined
     })
 
     const handleDeleteOptions = ()=>{
@@ -30,8 +32,21 @@ const Indecision = () =>{
    const handlePick = () =>{
     const randomNum = Math.floor(Math.random()*options.value.length)
     const option = options.value[randomNum]
-    alert(option)
+    setOption(() => ({
+        ...options,
+        selectedOption: option,
+      }));
    }
+
+   const clearSelectedOption = ()=>{
+    
+    
+    setOption(() => ({
+        ...options,
+        selectedOption: undefined,
+      }));
+   }
+   
 
    const handleAddOption =(option)=>{
     if(!option){
@@ -40,11 +55,10 @@ const Indecision = () =>{
         return 'This option already exists'
     }
 
-    setOption((prevState) =>{
-        return{
-            value:prevState.value.concat(option)
-        }
-    })
+    setOption(() =>({
+        value:options.value.concat(option)
+    }))
+     
   
    }
    const title = 'Indecison '
@@ -52,8 +66,10 @@ const Indecision = () =>{
     return(
         <div>
             <Header title={title} subtitle={subtitle} />
+         
             <Action
-            hasOptions={options.value.length>0}
+          
+                hasOptions={options.value.length>0}
            
                 handlePick={handlePick}
             />
@@ -65,7 +81,11 @@ const Indecision = () =>{
                 handleDeleteOption={handleDeleteOption}/>
             <AddOption
             handleAddOption={handleAddOption} />
-        
+            <OptionModal 
+                selectedOption={options.selectedOption}
+                clearSelectedOption={clearSelectedOption}
+                handleDeleteOptions={handleDeleteOptions}
+            />
         </div>
     )
 }
